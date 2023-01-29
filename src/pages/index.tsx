@@ -11,6 +11,11 @@ export default function Home() {
       </Head>
 
       <h1 className="text-4xl font-bold">Zals</h1>
+      <p className="text-black-50">TEXT BLACK 50</p>
+      <p className="text-white-0">TEXT WHITE 0</p>
+      <p className="text-error-50">TEXT ERROR 50</p>
+      <p className="text-warning-50">TEXT WARNING 50</p>
+      <p className="text-success-50">TEXT SUCCESS 50</p>
     </>
   );
 }
