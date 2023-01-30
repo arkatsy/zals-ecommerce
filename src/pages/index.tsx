@@ -1,4 +1,10 @@
 import Head from "next/head";
+import {
+  IconAuth,
+  IconBookmark,
+  IconCart,
+  IconMenu,
+} from "@/components/icons/";
 
 export default function Home() {
   return (
@@ -10,12 +16,45 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className="text-4xl font-bold">Zals</h1>
+      <h1 className="text-4xl font-bold ">ZALS</h1>
       <p className="text-black-50">TEXT BLACK 50</p>
       <p className="text-white-0">TEXT WHITE 0</p>
       <p className="text-error-50">TEXT ERROR 50</p>
       <p className="text-warning-50">TEXT WARNING 50</p>
       <p className="text-success-50">TEXT SUCCESS 50</p>
+
+      <p className="pt-10">
+        sm:
+        <hr className="pb-3" />
+        <div className="flex gap-4">
+          <IconMenu size="sm" state="CLOSED" />
+          <IconAuth size="sm" state="LOGIN" />
+          <IconCart size="sm" />
+          <IconBookmark size="sm" />
+        </div>
+      </p>
+
+      <p className="pt-10">
+        md:
+        <hr className="pb-3" />
+        <div className="flex gap-4">
+          <IconMenu size="md" state="CLOSED" />
+          <IconAuth size="md" state="LOGIN" />
+          <IconCart size="md" />
+          <IconBookmark size="md" />
+        </div>
+      </p>
+
+      <p className="pt-10">
+        lg:
+        <hr className="pb-3" />
+        <div className="flex gap-4">
+          <IconMenu size="lg" state="CLOSED" />
+          <IconAuth size="lg" state="LOGIN" />
+          <IconCart size="lg" />
+          <IconBookmark size="lg" />
+        </div>
+      </p>
     </>
   );
 }
