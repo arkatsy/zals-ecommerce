@@ -1,17 +1,15 @@
-import { BsBookmark } from "react-icons/bs";
+import { BiBookmark } from "react-icons/bi";
+import { chooseSize } from "./shared";
+import type { IconBaseProps } from "./shared";
 
-const SIZES = {
-  sm: 26,
-  md: 30,
-  lg: 34,
-} as const;
+interface IconBookmarkProps extends IconBaseProps {}
 
-interface IconBookmarkProps {
-  size?: keyof typeof SIZES;
-}
-
-const IconBookmark = ({ size = "md" }: IconBookmarkProps) => {
-  return <BsBookmark size={SIZES[size]} />;
+const IconBookmark = ({
+  size = "md",
+  className = "",
+  ...rest
+}: IconBookmarkProps) => {
+  return <BiBookmark size={chooseSize(size)} className={className} {...rest} />;
 };
 
 export default IconBookmark;

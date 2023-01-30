@@ -1,28 +1,28 @@
-import { SlLogin, SlLogout } from "react-icons/sl";
-
-const SIZES = {
-  sm: 26,
-  md: 30,
-  lg: 34,
-} as const;
+import { BiLogIn, BiLogOut } from "react-icons/bi";
+import { chooseSize } from "./shared";
+import type { IconBaseProps } from "./shared";
 
 const STATES = {
   LOGIN: "LOGIN",
   LOGOUT: "LOGOUT",
 } as const;
 
-interface IconAuthProps {
-  size?: keyof typeof SIZES;
+interface IconAuthProps extends IconBaseProps {
   state?: keyof typeof STATES;
 }
 
-const IconAuth = ({ size = "sm", state = STATES.LOGIN }: IconAuthProps) => {
+const IconAuth = ({
+  size = "sm",
+  state = STATES.LOGIN,
+  className = "",
+  ...rest
+}: IconAuthProps) => {
   return (
     <>
       {state === STATES.LOGIN ? (
-        <SlLogin size={SIZES[size]} />
+        <BiLogIn size={chooseSize(size)} className={className} {...rest} />
       ) : (
-        <SlLogout size={SIZES[size]} />
+        <BiLogOut size={chooseSize(size)} className={className} {...rest} />
       )}
     </>
   );

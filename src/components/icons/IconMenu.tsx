@@ -1,29 +1,28 @@
-import { RiMenuLine } from "react-icons/ri";
-import { IoMdClose } from "react-icons/io";
-
-const SIZES = {
-  sm: 32,
-  md: 38,
-  lg: 46,
-} as const;
+import { BiMenu, BiX } from "react-icons/bi";
+import { chooseSize } from "./shared";
+import type { IconBaseProps } from "./shared";
 
 const STATES = {
   OPENED: "OPENED",
   CLOSED: "CLOSED",
 } as const;
 
-interface IconMenuProps {
-  size?: keyof typeof SIZES;
+interface IconMenuProps extends IconBaseProps {
   state?: keyof typeof STATES;
 }
 
-const IconMenu = ({ size = "sm", state = STATES.OPENED }: IconMenuProps) => {
+const IconMenu = ({
+  size = "sm",
+  state = STATES.OPENED,
+  className = "",
+  ...rest
+}: IconMenuProps) => {
   return (
     <>
       {state === STATES.OPENED ? (
-        <IoMdClose size={SIZES[size]} />
+        <BiX size={chooseSize(size)} className={className} {...rest} />
       ) : (
-        <RiMenuLine size={SIZES[size]} />
+        <BiMenu size={chooseSize(size)} className={className} {...rest} />
       )}
     </>
   );

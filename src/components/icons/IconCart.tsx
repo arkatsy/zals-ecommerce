@@ -1,17 +1,13 @@
-import { BsBag } from "react-icons/bs";
+import { BiShoppingBag } from "react-icons/bi";
+import { chooseSize } from "./shared";
+import type { IconBaseProps } from "./shared";
 
-const SIZES = {
-  sm: 26,
-  md: 30,
-  lg: 34,
-} as const;
+interface IconCartProps extends IconBaseProps {}
 
-interface IconCartProps {
-  size?: keyof typeof SIZES;
-}
-
-const IconCart = ({ size = "sm" }: IconCartProps) => {
-  return <BsBag size={SIZES[size]} />;
+const IconCart = ({ size = "sm", className = "", ...rest }: IconCartProps) => {
+  return (
+    <BiShoppingBag size={chooseSize(size)} className={className} {...rest} />
+  );
 };
 
 export default IconCart;
