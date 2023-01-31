@@ -15,14 +15,14 @@ const IconMenu = ({
   size = "sm",
   state = STATES.OPENED,
   className = "",
-  ...rest
+  ...props
 }: IconMenuProps) => {
   return (
     <>
       {state === STATES.OPENED ? (
-        <BiX size={chooseSize(size)} className={className} {...rest} />
+        <BiX size={chooseSize(size)} className={className} {...props} />
       ) : (
-        <BiMenu size={chooseSize(size)} className={className} {...rest} />
+        <BiMenu size={chooseSize(size)} className={className} {...props} />
       )}
     </>
   );

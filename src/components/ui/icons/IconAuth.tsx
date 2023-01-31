@@ -15,14 +15,14 @@ const IconAuth = ({
   size = "sm",
   state = STATES.LOGIN,
   className = "",
-  ...rest
+  ...props
 }: IconAuthProps) => {
   return (
     <>
       {state === STATES.LOGIN ? (
-        <BiLogIn size={chooseSize(size)} className={className} {...rest} />
+        <BiLogIn size={chooseSize(size)} className={className} {...props} />
       ) : (
-        <BiLogOut size={chooseSize(size)} className={className} {...rest} />
+        <BiLogOut size={chooseSize(size)} className={className} {...props} />
       )}
     </>
   );

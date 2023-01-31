@@ -4,10 +4,8 @@ import type { IconBaseProps } from "./shared";
 
 interface IconCartProps extends IconBaseProps {}
 
-const IconCart = ({ size = "sm", className = "", ...rest }: IconCartProps) => {
-  return (
-    <BiShoppingBag size={chooseSize(size)} className={className} {...rest} />
-  );
+const IconCart = ({ size = "sm", className = "", ...props }: IconCartProps) => {
+  return <BiShoppingBag size={chooseSize(size)} className={className} {...props} />;
 };
 
 export default IconCart;
