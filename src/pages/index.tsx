@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { IconAuth, IconBookmark, IconCart, IconMenu } from "@/components/ui/icons";
 
+
 export default function Home() {
   return (
     <>
@@ -12,6 +13,7 @@ export default function Home() {
       </Head>
 
       <div className="pt-10" />
+      
       <p className="text-black-50">TEXT BLACK 50</p>
       <p className="text-white-0">TEXT WHITE 0</p>
       <p className="text-error-50">TEXT ERROR 50</p>
