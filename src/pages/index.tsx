@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Logo from "@/components/ui/Logo";
 
 export default function Home() {
   return (
@@ -9,8 +10,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <h1 className="text-4xl font-bold">Zals</h1>
+      <Logo label="MAN" />
       <p className="text-black-50">TEXT BLACK 50</p>
       <p className="text-white-0">TEXT WHITE 0</p>
       <p className="text-error-50">TEXT ERROR 50</p>
