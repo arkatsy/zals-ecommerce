@@ -1,5 +1,5 @@
 interface Props {
-  label?: "MAN" | "WOMEN" | "KIDS" | null;
+  label?: "MAN" | "WOMEN" | "KIDS" | "BOOKMARKS" | "CART" | null;
 }
 
 const Logo = ({ label = null }: Props) => {
@@ -7,7 +7,7 @@ const Logo = ({ label = null }: Props) => {
     <h1 className="select-none font-playfairDisplay text-4xl font-bold uppercase tracking-wider sm:text-5xl xl:text-6xl">
       ZALS
       {label && (
-        <span className="font-oswald text-base font-light tracking-wide sm:text-lg xl:text-2xl">
+        <span className="hidden font-oswald text-base font-light tracking-wide min-[350px]:inline-block sm:text-lg xl:text-2xl">
           {label}
         </span>
       )}
