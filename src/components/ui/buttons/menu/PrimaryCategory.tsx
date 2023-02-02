@@ -13,7 +13,7 @@ const primaryCategoryClasses = cva(["text-lg", "sm:text-xl", "md:text-2xl", "p-1
 
 interface PrimaryCategoryProps extends VariantProps<typeof primaryCategoryClasses> {
   category?: PrimaryCategories;
-  className: string;
+  className?: string;
   [x: string]: any;
 }
 
