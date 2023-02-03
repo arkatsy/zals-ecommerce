@@ -17,7 +17,7 @@ const aboutUsButtonClasses = cva(
     variants: {
       active: {
         false: ["font-light", "text-black-75"],
-        true: ["font-normal", "xl:font-medium", "text-black-100"],
+        true: ["font-normal", "text-black-100"],
       },
     },
   }
