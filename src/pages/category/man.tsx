@@ -5,13 +5,14 @@ const categories = ["MAN", "WOMEN", "KIDS"] as const;
 const ManPage = () => {
   return (
     <>
-      {categories.map((category) => (
+      man page
+      {/* {categories.map((category) => (
         <PrimaryCategory
           key={category}
           category={category}
           active={category === categories[0]}
         />
-      ))}
+      ))} */}
     </>
   );
 };

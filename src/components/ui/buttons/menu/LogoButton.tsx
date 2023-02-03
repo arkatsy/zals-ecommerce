@@ -4,11 +4,12 @@ type LogoLabel = "MAN" | "WOMEN" | "KIDS" | "BOOKMARKS" | "CART" | null;
 
 interface LogoButtonProps {
   label?: LogoLabel;
+  className?: string;
 }
 
-const LogoButton = ({ label = null }: LogoButtonProps) => {
+const LogoButton = ({ label = null, className }: LogoButtonProps) => {
   return (
-    <Link href="/" className="flex w-fit">
+    <Link href="/" className={`flex w-fit ${className}`}>
       <Logo label={label} />
     </Link>
   );

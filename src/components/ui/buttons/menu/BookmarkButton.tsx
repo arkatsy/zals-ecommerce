@@ -1,13 +1,14 @@
 import Link from "next/link";
-import { RiBookmarkLine, RiBookmarkFill } from "react-icons/ri";
+import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 
 interface BookmarkButtonProps {
   active?: boolean;
+  className?: string;
 }
 
-const BookmarkButton = ({ active = false }: BookmarkButtonProps) => {
+const BookmarkButton = ({ active = false, className }: BookmarkButtonProps) => {
   return (
-    <Link href="/bookmarks" className="flex w-fit">
+    <Link href="/bookmarks" className={`flex w-fit ${className}`}>
       <BookmarkIcon active={active} />
     </Link>
   );
@@ -21,9 +22,9 @@ const BookmarkIcon = ({ active }: BookmarkIconProps) => {
   return (
     <>
       {active ? (
-        <RiBookmarkFill className="h-6 w-6 sm:h-7 sm:w-7 xl:h-8 xl:w-9" />
+        <BsBookmarkFill className="h-6 w-6 sm:h-7 sm:w-7 xl:h-8 xl:w-8" />
       ) : (
-        <RiBookmarkLine className="h-6 w-6 sm:h-7 sm:w-7 xl:h-8 xl:w-9" />
+        <BsBookmark className="h-6 w-6 sm:h-7 sm:w-7 xl:h-8 xl:w-8" />
       )}
     </>
   );
