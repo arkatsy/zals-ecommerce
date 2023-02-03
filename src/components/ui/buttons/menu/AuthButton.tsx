@@ -1,20 +1,25 @@
 import Link from "next/link";
-import { BiLogIn, BiLogOut } from "react-icons/bi";
+import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 
 type ButtonTypes = "LOGIN" | "LOGOUT";
 
 interface AuthButtonProps {
   type: ButtonTypes;
+  className?: string;
 }
 
-const AuthButton = ({ type }: AuthButtonProps) => {
+const AuthButton = ({ type, className }: AuthButtonProps) => {
   return (
     <Link href="/login" className="flex w-fit">
-      <div className="flex items-center">
+      <div className="flex items-center gap-4">
         {type === "LOGIN" && (
-          <p className="hidden text-2xl font-light uppercase xl:block">LOGIN</p>
+          <p
+            className={`hidden text-3xl font-light uppercase tracking-wide xl:block ${className}`}
+          >
+            LOGIN
+          </p>
         )}
-        <AuthIcon type={type} />
+        <AuthIcon type={type} className={className} />
       </div>
     </Link>
   );
@@ -22,15 +27,18 @@ const AuthButton = ({ type }: AuthButtonProps) => {
 
 interface AuthIconProps {
   type: ButtonTypes;
+  className?: string;
 }
 
-const AuthIcon = ({ type }: AuthIconProps) => {
+const AuthIcon = ({ type, className }: AuthIconProps) => {
   return (
     <>
       {type === "LOGIN" ? (
-        <BiLogIn className="h-6 w-6 sm:h-7 sm:w-7 xl:h-9 xl:w-9" />
+        <AiOutlineLogin
+          className={`lg: h-7 w-7 sm:h-8 sm:w-8 xl:h-9 xl:w-9 ${className}`}
+        />
       ) : (
-        <BiLogOut className="h-6 w-6 sm:h-7 sm:w-7 xl:h-9 xl:w-9" />
+        <AiOutlineLogout className={`h-7 w-7 sm:h-8 sm:w-8 xl:h-9 xl:w-9 ${className}`} />
       )}
     </>
   );

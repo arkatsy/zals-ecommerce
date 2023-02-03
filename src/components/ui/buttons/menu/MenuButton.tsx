@@ -1,12 +1,13 @@
 import { BiMenu, BiX } from "react-icons/bi";
-
+import { SlMenu } from "react-icons/sl";
+import { GrClose } from "react-icons/gr";
 type MenuTypes = "OPENED" | "CLOSED";
 
 interface MenuButtonProps {
-  type: MenuTypes;
+  type?: MenuTypes;
 }
 
-const MenuButton = ({ type }: MenuButtonProps) => {
+const MenuButton = ({ type = "CLOSED" }: MenuButtonProps) => {
   return (
     <button>
       <MenuIcon type={type} />
@@ -22,9 +23,9 @@ const MenuIcon = ({ type }: MenuIconProps) => {
   return (
     <>
       {type === "OPENED" ? (
-        <BiMenu className="h-6 w-6 sm:h-7 sm:w-7 xl:h-9 xl:w-9" />
+        <GrClose className="h-7 w-7 sm:h-8 sm:w-8" />
       ) : (
-        <BiX className="h-6 w-6 sm:h-7 sm:w-7 xl:h-9 xl:w-9" />
+        <SlMenu className="h-7 w-7 sm:h-8 sm:w-8" />
       )}
     </>
   );

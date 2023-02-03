@@ -1,14 +1,4 @@
 import Head from "next/head";
-import {
-  LogoButton,
-  BookmarkButton,
-  CartButton,
-  AuthButton,
-  MenuButton,
-  PrimaryCategory,
-} from "@/components/ui/buttons/menu";
-
-const categories = ["MAN", "WOMEN", "KIDS"] as const;
 
 export default function Home() {
   return (
@@ -19,32 +9,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="w-100% flex  flex-row  items-center justify-start">
-        <LogoButton />
-        <MenuButton type="CLOSED" />
-        {categories.map((category) => (
-          <PrimaryCategory category={category} key={category} />
-        ))}
-        <BookmarkButton />
-        <CartButton />
-        <AuthButton type="LOGIN" />
-        <MenuButton type="OPENED" />
-      </div>
-      <div className="pt-10" />
-      <p className="text-black-50">TEXT BLACK 50</p>
-      <p className="text-white-0">TEXT WHITE 0</p>
-      <p className="text-error-50">TEXT ERROR 50</p>
-      <p className="text-warning-50">TEXT WARNING 50</p>
-      <p className="text-success-50">TEXT SUCCESS 50</p>
-      <AuthButton type="LOGIN" />
-      <LogoButton />
-      <LogoButton label="MAN" />
-      <MenuButton type="CLOSED" />
-      <BookmarkButton />
-      <CartButton />
-      <AuthButton type="LOGIN" />
-      <MenuButton type="OPENED" />
-      <BookmarkButton />
+      homepage
     </>
   );
 }

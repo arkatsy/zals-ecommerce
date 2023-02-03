@@ -1,11 +1,5 @@
-import { CartButton } from "@/components/ui/buttons/menu";
-
 const CartPage = () => {
-  return (
-    <div>
-      <CartButton active />
-    </div>
-  );
+  return <div>Cart Page</div>;
 };
 
 export default CartPage;

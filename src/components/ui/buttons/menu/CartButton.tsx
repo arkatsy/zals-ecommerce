@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { BiShoppingBag } from "react-icons/bi";
-import { RiShoppingBagFill } from "react-icons/ri";
+import { BsBag, BsBagFill } from "react-icons/bs";
 
 interface CartButtonProps {
   active?: boolean;
+  className?: string;
 }
 
-const CartButton = ({ active = false }: CartButtonProps) => {
+const CartButton = ({ active = false, className }: CartButtonProps) => {
   return (
-    <Link href="/cart" className="flex w-fit">
+    <Link href="/cart" className={`flex w-fit ${className}`}>
       <CartIcon active={active} />
     </Link>
   );
@@ -22,9 +22,9 @@ const CartIcon = ({ active }: CartIconProps) => {
   return (
     <>
       {active ? (
-        <RiShoppingBagFill className="h-6 w-6 sm:h-7 sm:w-7 xl:h-9 xl:w-9" />
+        <BsBagFill className="h-6 w-6 sm:h-7 sm:w-7 xl:h-8 xl:w-8" />
       ) : (
-        <BiShoppingBag className="h-6 w-6 sm:h-7 sm:w-7 xl:h-9 xl:w-9" />
+        <BsBag className="h-6 w-6 sm:h-7 sm:w-7 xl:h-8 xl:w-8" />
       )}
     </>
   );
