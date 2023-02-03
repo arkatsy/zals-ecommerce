@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-type LogoLabel = "MAN" | "WOMEN" | "KIDS" | "BOOKMARKS" | "CART" | null;
+type LogoLabel = "MAN" | "WOMEN" | "KIDS" | null;
 
 interface LogoButtonProps {
   label?: LogoLabel;
@@ -18,10 +18,10 @@ const LogoButton = ({ label = null, className }: LogoButtonProps) => {
 const Logo = (props: { label: LogoLabel }) => {
   const { label } = props;
   return (
-    <h1 className="select-none font-playfairDisplay text-4xl font-bold uppercase tracking-wider sm:text-5xl xl:text-6xl">
+    <h1 className="relative select-none font-playfairDisplay text-4xl font-bold uppercase tracking-wider sm:text-5xl xl:text-6xl">
       ZALS
       {label && (
-        <span className="hidden font-oswald text-base font-light tracking-wide min-[350px]:inline-block sm:text-lg xl:hidden xl:text-2xl">
+        <span className="absolute -bottom-2 hidden font-oswald text-base font-light tracking-wide min-[350px]:inline-block sm:text-lg xl:hidden xl:text-2xl">
           {label}
         </span>
       )}

@@ -26,8 +26,12 @@ const Header = ({}: HeaderProps) => {
 
   return (
     <header className="sticky top-0 mb-2 flex h-16 w-full max-w-[1920px] flex-row items-center justify-between bg-white-100 py-1 align-baseline sm:mb-4 sm:pt-6 lg:mb-6 lg:h-20">
-      <div className="flex flex-row items-center gap-32 xl:gap-64">
-        <LogoButton label="MAN" />
+      <div className="flex flex-row items-center gap-32 lg:gap-40 xl:gap-64">
+        <LogoButton
+          label={
+            isActiveCategory ? (pathname.split("/")[2].toUpperCase() as Categories) : null
+          }
+        />
         <div className="hidden gap-12 lg:flex xl:gap-14">
           {categories.map((category) => {
             return (
