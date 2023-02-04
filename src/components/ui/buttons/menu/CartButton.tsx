@@ -8,8 +8,15 @@ interface CartButtonProps {
 
 const CartButton = ({ active = false, className }: CartButtonProps) => {
   return (
-    <Link href="/cart" className={`flex w-fit ${className}`}>
+    <Link
+      href="/cart"
+      className={`flex w-fit ${className}`}
+      aria-label="Go to your shopping cart"
+    >
       <CartIcon active={active} />
+      <span className="sr-only">
+        Navigate to your shopping cart where you saved your products you want to buy
+      </span>
     </Link>
   );
 };

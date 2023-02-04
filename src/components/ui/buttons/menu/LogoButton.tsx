@@ -9,7 +9,11 @@ interface LogoButtonProps {
 
 const LogoButton = ({ label = null, className }: LogoButtonProps) => {
   return (
-    <Link href="/" className={`flex w-fit ${className}`}>
+    <Link
+      href="/"
+      className={`flex w-fit ${className}`}
+      aria-label="Zals Logo. Click to go to the homepage"
+    >
       <Logo label={label} />
     </Link>
   );
