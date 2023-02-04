@@ -9,7 +9,7 @@ interface MenuButtonProps {
 
 const MenuButton = ({ type = "CLOSED" }: MenuButtonProps) => {
   return (
-    <button>
+    <button aria-label={type === "CLOSED" ? "Open menu" : "Close menu"}>
       <MenuIcon type={type} />
     </button>
   );

@@ -10,7 +10,7 @@ interface AuthButtonProps {
 
 const AuthButton = ({ type, className }: AuthButtonProps) => {
   return (
-    <Link href="/login" className="flex w-fit">
+    <Link href="/login" className="flex w-fit" aria-label="Log in to our website">
       <div className="flex items-center gap-4">
         {type === "LOGIN" && (
           <p
@@ -20,6 +20,7 @@ const AuthButton = ({ type, className }: AuthButtonProps) => {
           </p>
         )}
         <AuthIcon type={type} className={className} />
+        <span className="sr-only">Navigate to the login page</span>
       </div>
     </Link>
   );
