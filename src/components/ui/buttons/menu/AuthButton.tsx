@@ -10,11 +10,16 @@ interface AuthButtonProps {
 
 const AuthButton = ({ type, className }: AuthButtonProps) => {
   return (
-    <Link href="/login" className="flex w-fit" aria-label="Log in to our website">
-      <div className="flex items-center gap-4">
+    <Link
+      href="/login"
+      className="flex w-fit"
+      aria-label="Log in to our website"
+      title="Log in to our website"
+    >
+      <div className="flex items-center gap-2">
         {type === "LOGIN" && (
           <p
-            className={`hidden text-3xl font-light uppercase tracking-wide xl:block ${className}`}
+            className={`hidden font-light uppercase tracking-wide lg:block lg:text-2xl xl:text-3xl ${className}`}
           >
             LOGIN
           </p>

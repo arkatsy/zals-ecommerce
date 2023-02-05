@@ -12,6 +12,7 @@ const CartButton = ({ active = false, className }: CartButtonProps) => {
       href="/cart"
       className={`flex w-fit ${className}`}
       aria-label="Go to your shopping cart"
+      title="Go to your shopping cart"
     >
       <CartIcon active={active} />
       <span className="sr-only">

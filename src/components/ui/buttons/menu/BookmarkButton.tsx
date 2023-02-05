@@ -12,6 +12,7 @@ const BookmarkButton = ({ active = false, className }: BookmarkButtonProps) => {
       href="/bookmarks"
       className={`flex w-fit ${className}`}
       aria-label="Go to your bookmarked products"
+      title="Go to your bookmarked products"
     >
       <BookmarkIcon active={active} />
       <span className="sr-only">Navigate to your saved products page</span>

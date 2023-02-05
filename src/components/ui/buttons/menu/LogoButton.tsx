@@ -13,6 +13,7 @@ const LogoButton = ({ label = null, className }: LogoButtonProps) => {
       href="/"
       className={`flex w-fit ${className}`}
       aria-label="Zals Logo. Click to go to the homepage"
+      title="Zals Logo. Click to go to the homepage"
     >
       <Logo label={label} />
     </Link>

@@ -53,7 +53,7 @@ const Header = ({}: HeaderProps) => {
         <BookmarkButton active={isActiveBookmark} className="relative xl:top-1" />
         <CartButton active={isActiveCart} className="relative xl:top-1" />
         {!isActiveLogin && (
-          <AuthButton type="LOGIN" className="relative -top-1 lg:top-0" />
+          <AuthButton type="LOGIN" className="relative -top-1 ml-1 lg:top-0" />
         )}
         <div className="relative  ml-1 min-[350px]:pl-4 sm:pl-8 lg:hidden">
           <MenuButton type="CLOSED" />

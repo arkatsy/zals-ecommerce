@@ -38,6 +38,8 @@ const PrimaryCategory = ({
     <Link
       href={`/category/${category.toLowerCase()}`}
       className={`${primaryCategoryClasses({ active })} ${className}`}
+      aria-label={`Navigate to the ${category} category`}
+      title={`Navigate to the ${category} category`}
       {...props}
     >
       {category}
