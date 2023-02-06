@@ -1,4 +1,4 @@
-import { PrimaryCategory } from "@/components/ui/buttons/menu";
+import { PrimaryCategory } from "@/components/ui/buttons/";
 
 const categories = ["MAN", "WOMEN", "KIDS"] as const;
 

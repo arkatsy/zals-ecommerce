@@ -50,12 +50,18 @@ const Header = ({}: HeaderProps) => {
       </div>
       <nav className="relative top-2 flex flex-row gap-3 min-[420px]:gap-6 sm:gap-8 lg:top-2">
         <AboutUsButton active={isActiveAboutUs} className="hidden 2xl:block" />
-        <BookmarkButton active={isActiveBookmark} className="relative xl:top-1" />
-        <CartButton active={isActiveCart} className="relative xl:top-1" />
+        <BookmarkButton
+          active={isActiveBookmark}
+          className="relative lg:top-0.5 xl:-top-[1px]"
+        />
+        <CartButton
+          active={isActiveCart}
+          className="relative lg:top-0.5 xl:-top-[1px] "
+        />
         {!isActiveLogin && (
-          <AuthButton type="LOGIN" className="relative -top-1 ml-1 lg:top-0" />
+          <AuthButton type="LOGIN" className="relative -top-0.5 ml-1 " />
         )}
-        <div className="relative  ml-1 min-[350px]:pl-4 sm:pl-8 lg:hidden">
+        <div className="relative top-1 ml-1 min-[350px]:pl-4 sm:top-[5px] sm:pl-8 lg:hidden">
           <MenuButton type="CLOSED" />
         </div>
       </nav>

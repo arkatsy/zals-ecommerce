@@ -30,7 +30,11 @@ interface AboutUsButtonProps extends VariantProps<typeof aboutUsButtonClasses> {
 
 const AboutUsButton = ({ className, active = false }: AboutUsButtonProps) => {
   return (
-    <Link href="/about-us" className={`${aboutUsButtonClasses({ active })} ${className}`}>
+    <Link
+      href="/about-us"
+      className={`${aboutUsButtonClasses({ active })} ${className}`}
+      title="Go to about us page"
+    >
       ABOUT US
     </Link>
   );
