@@ -10,7 +10,7 @@ const BookmarkButton = ({ active = false, className }: BookmarkButtonProps) => {
   return (
     <Link
       href="/bookmarks"
-      className={`flex w-fit ${className}`}
+      className={`flex w-fit ${className} p-1`}
       aria-label="Go to your bookmarked products"
       title="Go to your bookmarked products"
     >

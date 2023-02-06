@@ -12,7 +12,7 @@ const AuthButton = ({ type, className }: AuthButtonProps) => {
   return (
     <Link
       href="/login"
-      className="flex w-fit"
+      className="flex w-fit p-1.5"
       aria-label="Log in to our website"
       title="Log in to our website"
     >

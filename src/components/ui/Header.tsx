@@ -6,14 +6,14 @@ import {
   LogoButton,
   MenuButton,
   PrimaryCategory,
-} from "./buttons/menu";
-import AboutUsButton from "./buttons/menu/AboutUsButton";
-
-interface HeaderProps {}
+  AboutUsButton,
+} from "./buttons";
 
 type Categories = "MAN" | "WOMEN" | "KIDS";
 
 const categories: Array<Categories> = ["MAN", "WOMEN", "KIDS"];
+
+interface HeaderProps {}
 
 const Header = ({}: HeaderProps) => {
   const { pathname } = useRouter();
@@ -48,7 +48,7 @@ const Header = ({}: HeaderProps) => {
           })}
         </div>
       </div>
-      <ul className="relative top-2 flex flex-row gap-3 min-[420px]:gap-6 sm:gap-8 lg:top-2">
+      <nav className="relative top-2 flex flex-row gap-3 min-[420px]:gap-6 sm:gap-8 lg:top-2">
         <AboutUsButton active={isActiveAboutUs} className="hidden 2xl:block" />
         <BookmarkButton active={isActiveBookmark} className="relative xl:top-1" />
         <CartButton active={isActiveCart} className="relative xl:top-1" />
@@ -58,7 +58,7 @@ const Header = ({}: HeaderProps) => {
         <div className="relative  ml-1 min-[350px]:pl-4 sm:pl-8 lg:hidden">
           <MenuButton type="CLOSED" />
         </div>
-      </ul>
+      </nav>
     </header>
   );
 };

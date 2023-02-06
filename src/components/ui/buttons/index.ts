@@ -4,6 +4,7 @@ import PrimaryCategory from "./PrimaryCategory";
 import MenuButton from "./MenuButton";
 import CartButton from "./CartButton";
 import LogoButton from "./LogoButton";
+import AboutUsButton from "./AboutUsButton";
 
 export {
   AuthButton,
@@ -12,4 +13,5 @@ export {
   MenuButton,
   CartButton,
   LogoButton,
+  AboutUsButton,
 };

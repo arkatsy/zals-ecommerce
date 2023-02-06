@@ -1,15 +1,24 @@
-import { BiMenu, BiX } from "react-icons/bi";
 import { SlMenu } from "react-icons/sl";
 import { GrClose } from "react-icons/gr";
 type MenuTypes = "OPENED" | "CLOSED";
 
 interface MenuButtonProps {
   type?: MenuTypes;
+  onClick?: () => void;
 }
 
-const MenuButton = ({ type = "CLOSED" }: MenuButtonProps) => {
+const MenuButton = ({ type = "CLOSED", onClick }: MenuButtonProps) => {
+  const onClickWrapper = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <button aria-label={type === "CLOSED" ? "Open menu" : "Close menu"}>
+    <button
+      aria-label={type === "CLOSED" ? "Open menu" : "Close menu"}
+      onClick={onClickWrapper}
+    >
       <MenuIcon type={type} />
     </button>
   );

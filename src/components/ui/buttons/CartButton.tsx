@@ -10,7 +10,7 @@ const CartButton = ({ active = false, className }: CartButtonProps) => {
   return (
     <Link
       href="/cart"
-      className={`flex w-fit ${className}`}
+      className={`flex w-fit ${className} p-1`}
       aria-label="Go to your shopping cart"
       title="Go to your shopping cart"
     >
