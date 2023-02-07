@@ -5,22 +5,20 @@ type LogoLabel = "MAN" | "WOMEN" | "KIDS" | null;
 interface LogoButtonProps {
   label?: LogoLabel;
   className?: string;
+  href?: string;
+  ariaLabel?: string;
+  title?: string;
 }
 
-const LogoButton = ({ label = null, className }: LogoButtonProps) => {
+const Logo = ({ label = null, className, ariaLabel, title }: LogoButtonProps) => {
   return (
-    <Link
-      href="/"
-      className={`flex w-fit ${className}`}
-      aria-label="Zals Logo. Click to go to the homepage"
-      title="Zals Logo. Click to go to the homepage"
-    >
-      <Logo label={label} />
+    <Link href="/" className={`flex ${className}`} aria-label={ariaLabel} title={title}>
+      <Content label={label} />
     </Link>
   );
 };
 
-const Logo = (props: { label: LogoLabel }) => {
+const Content = (props: { label: LogoLabel }) => {
   const { label } = props;
   return (
     <h1 className="relative select-none font-playfairDisplay text-4xl font-bold uppercase tracking-wider sm:text-5xl xl:text-6xl">
@@ -34,4 +32,4 @@ const Logo = (props: { label: LogoLabel }) => {
   );
 };
 
-export default LogoButton;
+export default Logo;

@@ -1,38 +1,38 @@
 import { useRouter } from "next/router";
 import {
-  AuthButton,
-  BookmarkButton,
-  CartButton,
-  LogoButton,
-  MenuButton,
-  PrimaryCategory,
-  AboutUsButton,
-} from "./buttons";
+  BookmarkIconLink,
+  CartIconLink,
+  LoginIconLink,
+  MenuIconButton,
+} from "./IconWrappers";
+import AboutUsLink from "./AboutUsLink";
+import PrimaryCategory from "./PrimaryCategory";
+import Logo from "./Logo";
 
 type Categories = "MAN" | "WOMEN" | "KIDS";
 
 const categories: Array<Categories> = ["MAN", "WOMEN", "KIDS"];
 
-interface HeaderProps {}
-
-const Header = ({}: HeaderProps) => {
+const Header = ({}) => {
   const { pathname } = useRouter();
 
-  const isActiveCategory = pathname.split("/")[1] === "category";
-  const isActiveBookmark = pathname === "/bookmarks";
-  const isActiveCart = pathname === "/cart";
-  const isActiveLogin = pathname === "/login";
-  const isActiveAboutUs = pathname === "/about-us";
+  const isCategoryPageActive = pathname.split("/")[1] === "category";
+  const isBookmarkPageActive = pathname === "/bookmarks";
+  const isCartPageActive = pathname === "/cart";
+  const isLoginPageActive = pathname === "/login";
+  const isAboutusPageActive = pathname === "/about-us";
 
   return (
-    <header className="sticky top-0 mb-2 flex h-16 w-full max-w-[1920px] flex-row items-center justify-between bg-white-100 py-1 align-baseline sm:mb-4 sm:pt-6 lg:mb-6 lg:h-20">
-      <div className="flex flex-row items-center gap-32 lg:gap-40 xl:gap-64">
-        <LogoButton
+    <header className="sticky top-0 mb-2 flex h-16 w-full max-w-[1920px] items-center justify-between bg-white-100 py-1 align-baseline sm:mb-4 sm:pt-6 lg:mb-6 lg:h-20">
+      <div className="flex items-center gap-32 lg:gap-40 xl:gap-64">
+        <Logo
           label={
-            isActiveCategory ? (pathname.split("/")[2].toUpperCase() as Categories) : null
+            isCategoryPageActive
+              ? (pathname.split("/")[2].toUpperCase() as Categories)
+              : null
           }
         />
-        <div className="hidden gap-12 lg:flex xl:gap-14">
+        <div className="hidden lg:flex lg:gap-12 xl:gap-14">
           {categories.map((category) => {
             return (
               <PrimaryCategory
@@ -40,7 +40,8 @@ const Header = ({}: HeaderProps) => {
                 key={category}
                 category={category}
                 active={
-                  isActiveCategory && category === pathname.split("/")[2].toUpperCase()
+                  isCategoryPageActive &&
+                  category === pathname.split("/")[2].toUpperCase()
                 }
                 className="relative top-2"
               />
@@ -48,23 +49,35 @@ const Header = ({}: HeaderProps) => {
           })}
         </div>
       </div>
-      <nav className="relative top-2 flex flex-row gap-3 min-[420px]:gap-6 sm:gap-8 lg:top-2">
-        <AboutUsButton active={isActiveAboutUs} className="hidden 2xl:block" />
-        <BookmarkButton
-          active={isActiveBookmark}
-          className="relative lg:top-0.5 xl:-top-[1px]"
+      <div className="relative top-0.5 flex gap-1 min-[420px]:gap-4 sm:gap-8 lg:top-1 lg:gap-3 xl:top-2">
+        <AboutUsLink
+          href="/about-us"
+          active={isAboutusPageActive}
+          className="hidden xl:mr-2 xl:inline-block"
         />
-        <CartButton
-          active={isActiveCart}
-          className="relative lg:top-0.5 xl:-top-[1px] "
-        />
-        {!isActiveLogin && (
-          <AuthButton type="LOGIN" className="relative -top-0.5 ml-1 " />
-        )}
-        <div className="relative top-1 ml-1 min-[350px]:pl-4 sm:top-[5px] sm:pl-8 lg:hidden">
-          <MenuButton type="CLOSED" />
+        <div className="relative top-[3px] flex gap-1 min-[420px]:gap-3 sm:top-[2px]">
+          <BookmarkIconLink
+            active={isBookmarkPageActive}
+            href="/bookmarks"
+            ariaLabel="Go to bookmarks page"
+            title="Bookmarks Page"
+          />
+          <CartIconLink
+            active={isCartPageActive}
+            href="/cart"
+            ariaLabel="Go to cart page"
+            title="Shopping Cart Page"
+          />
         </div>
-      </nav>
+        <LoginIconLink
+          href="/login"
+          active={isLoginPageActive}
+          className="relative top-[2px] ml-2"
+          ariaLabel="Go to login page"
+          title="Login Page"
+        />
+        <MenuIconButton active={false} className="relative top-[2px] lg:hidden" />
+      </div>
     </header>
   );
 };
