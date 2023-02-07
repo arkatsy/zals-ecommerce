@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import Link from "next/link";
 
-const aboutUsButtonClasses = cva(
+const aboutUsLinkClasses = cva(
   [
     "flex",
     "w-fit",
@@ -23,17 +23,17 @@ const aboutUsButtonClasses = cva(
   }
 );
 
-interface AboutUsButtonProps extends VariantProps<typeof aboutUsButtonClasses> {
+interface AboutUsLinkProps extends VariantProps<typeof aboutUsLinkClasses> {
+  href: string;
   className?: string;
-  active?: boolean;
 }
 
-const AboutUsButton = ({ className, active = false }: AboutUsButtonProps) => {
+const AboutUsLink = ({ href, className = "", active }: AboutUsLinkProps) => {
   return (
-    <Link href="/about-us" className={`${aboutUsButtonClasses({ active })} ${className}`}>
+    <Link href={href} className={`${aboutUsLinkClasses({ active })} ${className}`}>
       ABOUT US
     </Link>
   );
 };
 
-export default AboutUsButton;
+export default AboutUsLink;

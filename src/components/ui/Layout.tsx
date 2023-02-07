@@ -16,7 +16,7 @@ const Layout = ({ children, ...props }: Props) => {
   return (
     <div
       {...props}
-      className={`${oswald.variable} ${playfairDisplay.variable} mx-3 flex  min-h-screen flex-col items-center bg-white-100 font-oswald min-[360px]:mx-8 lg:mx-16`}
+      className={`${oswald.variable} ${playfairDisplay.variable} mx-3 flex min-h-screen flex-col items-center bg-white-100 font-oswald min-[360px]:mx-8 lg:mx-16`}
     >
       <Header />
       {children}

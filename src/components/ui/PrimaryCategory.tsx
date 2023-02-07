@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cva, type VariantProps } from "class-variance-authority";
+
 type PrimaryCategories = "MAN" | "WOMEN" | "KIDS";
 
 const primaryCategoryClasses = cva(
