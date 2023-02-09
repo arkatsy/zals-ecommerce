@@ -10,7 +10,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="relative h-full w-full">
+      <main className="relative h-screen w-full">
         <Image
           src="/testingImage.jpg"
           fill
