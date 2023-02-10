@@ -9,7 +9,7 @@ const primaryCategoryClasses = cva(
     "sm:text-xl",
     "md:text-2xl",
     "xl:text-3xl",
-    "p-1",
+    "p-[6px]",
     "tracking-wide",
     "uppercase",
     "font-oswald",

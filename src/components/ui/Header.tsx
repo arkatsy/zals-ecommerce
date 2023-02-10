@@ -133,9 +133,10 @@ const Sidebar = ({
   const onChangeCategoryWrapper = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    setActiveCategoryInMenu(e.currentTarget.getAttribute("label") as Categories);
-    if (onChangeCategory)
-      onChangeCategory(e.currentTarget.getAttribute("label") as Categories);
+    const activeCategory = e.currentTarget.getAttribute("label") as Categories;
+
+    setActiveCategoryInMenu(activeCategory);
+    if (onChangeCategory) onChangeCategory(activeCategory);
   };
 
   return (

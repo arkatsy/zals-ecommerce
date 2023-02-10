@@ -8,7 +8,7 @@ const aboutUsLinkClasses = cva(
     "text-lg",
     "sm:text-xl",
     "md:text-2xl",
-    "p-1",
+    "p-[6px]",
     "xl:text-3xl",
     "tracking-wide",
     "uppercase",
