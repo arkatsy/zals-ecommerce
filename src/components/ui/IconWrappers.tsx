@@ -128,7 +128,7 @@ export const MenuIconButton = ({
 }: IconButtonProps) => {
   return (
     <button
-      className={`flex p-1 ${className}`}
+      className={`flex h-min p-1 ${className}`}
       aria-label={ariaLabel}
       title={title}
       onClick={onClick}

@@ -14,13 +14,26 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const Layout = ({ children, ...props }: Props) => {
   return (
-    <div
-      {...props}
-      className={`${oswald.variable} ${playfairDisplay.variable} mx-3 flex min-h-screen flex-col items-center bg-white-100 font-oswald min-[360px]:mx-8 lg:mx-16`}
-    >
-      <Header />
-      {children}
-    </div>
+    <>
+      <style jsx global>
+        {`
+          :root {
+            --font-oswald: ${oswald.style.fontFamily};
+          }
+        `}
+      </style>
+      <div
+        {...props}
+        className={`${oswald.variable} ${playfairDisplay.variable} flex justify-center`}
+      >
+        <div className="flex w-full max-w-[1920px] flex-col">
+          <div className="flex h-full max-w-[1920px] flex-col items-center font-oswald">
+            <Header />
+            <div className="min-h-screen w-full">{children}</div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
