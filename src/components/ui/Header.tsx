@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Dialog } from "@headlessui/react";
 import {
   BookmarkIconLink,
   CartIconLink,
@@ -7,18 +8,32 @@ import {
   MenuIconButton,
 } from "./IconWrappers";
 import AboutUsLink from "./AboutUsLink";
-import PrimaryCategory from "./PrimaryCategory";
 import Logo from "./Logo";
-import { Dialog } from "@headlessui/react";
+import { PrimaryCategory } from "./PrimaryCategory";
+import useMediaQuery from "@/lib/useMediaQuery";
 
-type Categories = "MAN" | "WOMEN" | "KIDS";
+const categories = ["MAN", "WOMEN", "KIDS"] as const;
 
-const categories: Array<Categories> = ["MAN", "WOMEN", "KIDS"];
+type Categories = (typeof categories)[number];
 
 const Header = ({}) => {
   const { pathname } = useRouter();
-  const [activeMenuOverlay, setActiveMenuOverlay] = useState(false);
 
+  // Sidebar state
+  const [activeSidebar, setActiveSidebar] = useState(false);
+  const toggleSidebar = () => setActiveSidebar((prev) => !prev);
+  const [activeSidebarCategory, setActiveSidebarCategory] = useState<Categories>("MAN");
+
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+
+  // Reset the state of the sidebar
+  useEffect(() => {
+    if (isDesktop) {
+      setActiveSidebar(false);
+    }
+  }, [isDesktop]);
+
+  // Check the current page the user is on
   const isCategoryPageActive = pathname.split("/")[1] === "category";
   const isBookmarkPageActive = pathname === "/bookmarks";
   const isCartPageActive = pathname === "/cart";
@@ -39,10 +54,11 @@ const Header = ({}) => {
           <div className="hidden lg:flex lg:gap-12 xl:gap-14">
             {categories.map((category) => {
               return (
-                <PrimaryCategory
+                <PrimaryCategory.Link
                   label={category}
                   key={category}
                   category={category}
+                  href={`/category/${category.toLowerCase()}`}
                   active={
                     isCategoryPageActive &&
                     category === pathname.split("/")[2].toUpperCase()
@@ -81,30 +97,74 @@ const Header = ({}) => {
             title="Login Page"
           />
           <MenuIconButton
-            onClick={() => setActiveMenuOverlay((c) => !c)}
+            onClick={toggleSidebar}
             className="relative top-[2px] ml-2 lg:hidden"
           />
         </div>
       </header>
-      <Dialog
-        as="div"
-        open={activeMenuOverlay}
-        onClose={() => setActiveMenuOverlay((c) => !c)}
-        className="fixed z-40 h-full w-full lg:hidden"
-      >
-        <div className="fixed top-0 h-full w-full bg-black-50 opacity-75"></div>
-
-        <Dialog.Panel className="fixed right-0 top-0 h-full w-full bg-white-100 opacity-100 min-[420px]:w-80 sm:w-[400px]">
-          <div className="relative right-0 flex h-[75px] items-center justify-end border-b-[1px] border-b-black-25 px-2 min-[420px]:px-6 sm:h-[80px] sm:px-10 md:h-[92px]">
-            <MenuIconButton
-              active={true}
-              onClick={() => setActiveMenuOverlay(false)}
-              className="relative top-1 sm:top-[4px]"
-            />
-          </div>
-        </Dialog.Panel>
-      </Dialog>
+      {!isDesktop && (
+        <Sidebar
+          isOpen={activeSidebar}
+          onClose={toggleSidebar}
+          activeCategory={activeSidebarCategory}
+          onChangeCategory={setActiveSidebarCategory}
+        />
+      )}
     </>
+  );
+};
+
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+  activeCategory?: Categories;
+  onChangeCategory?: (category: Categories) => void;
+}
+
+const Sidebar = ({
+  isOpen,
+  onClose,
+  activeCategory = "MAN",
+  onChangeCategory,
+}: SidebarProps) => {
+  const [activeCategoryInMenu, setActiveCategoryInMenu] =
+    useState<Categories>(activeCategory);
+
+  const onChangeCategoryWrapper = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    setActiveCategoryInMenu(e.currentTarget.getAttribute("label") as Categories);
+    if (onChangeCategory)
+      onChangeCategory(e.currentTarget.getAttribute("label") as Categories);
+  };
+
+  return (
+    <Dialog as="div" open={isOpen} onClose={onClose} className="fixed z-40 h-full w-full">
+      <div className="fixed top-0 h-full w-full bg-black-50 opacity-75"></div>
+      <Dialog.Panel className="fixed right-0 top-0 h-full w-full bg-white-100 opacity-100 min-[420px]:w-[420px] sm:w-[480px] md:w-[540px]">
+        <div className="relative right-0 flex h-[75px] items-center justify-end border-b-[1px] border-b-black-25 px-2 min-[420px]:px-6 sm:h-[80px] sm:px-10 md:h-[92px]">
+          <MenuIconButton
+            active={true}
+            onClick={onClose}
+            className="relative top-1 sm:top-[4px]"
+          />
+        </div>
+        <div className="mt-8 flex justify-around">
+          {categories.map((category) => {
+            return (
+              <PrimaryCategory.Button
+                label={category}
+                key={category}
+                category={category}
+                active={category === activeCategoryInMenu}
+                className="text-xl sm:text-2xl "
+                onClick={onChangeCategoryWrapper}
+              />
+            );
+          })}
+        </div>
+      </Dialog.Panel>
+    </Dialog>
   );
 };
 

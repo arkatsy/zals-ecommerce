@@ -12,6 +12,7 @@ const primaryCategoryClasses = cva(
     "p-1",
     "tracking-wide",
     "uppercase",
+    "font-oswald",
   ],
   {
     variants: {
@@ -29,18 +30,19 @@ interface PrimaryCategoryProps extends VariantProps<typeof primaryCategoryClasse
   [x: string]: any;
 }
 
-const PrimaryCategory = ({
+const PrimaryCategoryLink = ({
   category = "MAN",
   active = false,
   className = "",
+  href,
   ...props
-}: PrimaryCategoryProps) => {
+}: PrimaryCategoryProps & {
+  href: string;
+}) => {
   return (
     <Link
-      href={`/category/${category.toLowerCase()}`}
+      href={href}
       className={`${primaryCategoryClasses({ active })} ${className}`}
-      aria-label={`Navigate to the ${category} category`}
-      title={`Navigate to the ${category} category`}
       {...props}
     >
       {category}
@@ -48,4 +50,27 @@ const PrimaryCategory = ({
   );
 };
 
-export default PrimaryCategory;
+const PrimaryCategoryButton = ({
+  category = "MAN",
+  active = false,
+  className = "",
+  onClick,
+  ...props
+}: PrimaryCategoryProps & {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}) => {
+  return (
+    <button
+      className={`${primaryCategoryClasses({ active })} ${className}`}
+      onClick={onClick}
+      {...props}
+    >
+      {category}
+    </button>
+  );
+};
+
+export const PrimaryCategory = {
+  Link: PrimaryCategoryLink,
+  Button: PrimaryCategoryButton,
+};
