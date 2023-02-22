@@ -22,9 +22,14 @@ const Layout = ({ children, ...props }: Props) => {
           }
         `}
       </style>
-      <div {...props} className={`${oswald.variable} ${playfairDisplay.variable}`}>
+      <div
+        {...props}
+        className={`${oswald.variable} ${playfairDisplay.variable} px-4 sm:px-6 lg:px-8`}
+      >
         <Header />
-        {children}
+        <div className="mx-auto flex max-w-[1920px] items-center bg-white-100">
+          {children}
+        </div>
       </div>
     </>
   );

@@ -1,12 +1,7 @@
 import { Dialog, Tab, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import { XIcon } from "./Icons";
-
-const MAIN_CATEGORIES = ["MAN", "WOMEN", "KIDS"] as const;
-
-function classNames(...classes: Array<string>) {
-  return classes.filter(Boolean).join(" ");
-}
+import { MAIN_CATEGORIES, classNames } from "@/lib/utils";
 
 function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [currentTab, setCurrentTab] = useState(0);
