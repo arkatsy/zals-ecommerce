@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
+import Product from "@/components/Product";
 
 export default function Home() {
   return (
@@ -10,7 +10,26 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>Homepage</main>
+      <main className="flex gap-8">
+        <Product
+          title="Product title"
+          id="p-0002716"
+          price={64}
+          description="Description"
+          productImage="/testingImage.jpg"
+          sales={{
+            discount: 10,
+            discountPrice: 57.6,
+          }}
+        />
+        <Product
+          title="Product title"
+          id="p-0002716"
+          price={64}
+          description="Description"
+          productImage="/testingImage.jpg"
+        />
+      </main>
     </>
   );
 }
