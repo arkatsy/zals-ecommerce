@@ -1,5 +1,11 @@
+import ProductsGrid from "@/components/ProductsGrid";
+
 const WomenPage = () => {
-  return <>women page</>;
+  return (
+    <main className="mt-4">
+      <ProductsGrid />
+    </main>
+  );
 };
 
 export default WomenPage;

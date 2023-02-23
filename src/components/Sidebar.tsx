@@ -16,7 +16,7 @@ function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
         static
         as="div"
         open={isOpen}
-        className="fixed top-0 right-0 bottom-0 lg:hidden"
+        className="fixed top-0 right-0 bottom-0 z-40 lg:hidden"
         onClose={onClose}
       >
         <Transition.Child
