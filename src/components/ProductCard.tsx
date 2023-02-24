@@ -1,22 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Product } from "@/lib/utils";
 
-interface ProductProps {
-  title: string;
-  price: number;
-  id: string;
-  productImage: string;
-  description: string;
-  sales?: {
-    discount: number; // (0% - 100%)
-    discountPrice: number;
-  };
-}
-
-function Product({ id, title, price, productImage, description, sales }: ProductProps) {
+function ProductCard({ id, title, price, productImage, description, sales }: Product) {
   return (
     <div className="relative h-full w-full max-w-xs">
-      <div className="relative h-[424px] w-full cursor-pointer">
+      <div className="relative h-[400px] w-full cursor-pointer">
         <Link href="/product/[id]" as={`/product/${id}`}>
           <Image
             src={productImage}
@@ -44,4 +33,4 @@ function Product({ id, title, price, productImage, description, sales }: Product
   );
 }
 
-export default Product;
+export default ProductCard;
