@@ -26,7 +26,7 @@ function Header() {
   const isCartPage = pathname === "/cart";
 
   return (
-    <header className="mx-auto flex max-w-[1920px] items-center py-3">
+    <header className="sticky top-0 z-10 mx-auto flex max-w-[1920px] items-center bg-white-100 py-3 md:pb-4">
       <div className="relative grid w-full grid-cols-2 lg:grid-cols-3">
         <div className="w-min">
           <Logo label={label} />

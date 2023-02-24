@@ -27,7 +27,7 @@ const Layout = ({ children, ...props }: Props) => {
         className={`${oswald.variable} ${playfairDisplay.variable} px-4 sm:px-6 lg:px-8`}
       >
         <Header />
-        <div className="mx-auto  max-w-[1920px]  bg-white-100">{children}</div>
+        <div className="mx-auto max-w-[1920px] bg-white-100">{children}</div>
       </div>
     </>
   );

@@ -1,7 +1,14 @@
-const categories = ["MAN", "WOMEN", "KIDS"] as const;
+import ProductsGrid from "@/components/ProductsGrid";
+import { generateProducts } from "@/lib/utils";
+
+const products = generateProducts("MAN", 50);
 
 const ManPage = () => {
-  return <>man page</>;
+  return (
+    <main className="mt-4">
+      <ProductsGrid products={products} />
+    </main>
+  );
 };
 
 export default ManPage;
